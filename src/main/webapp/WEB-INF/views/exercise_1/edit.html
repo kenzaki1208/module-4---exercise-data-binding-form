@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Settings</h2>
+<form th:action="@{/exercise_1/settings/update}" th:object="${emailSettings}" method="post">
+
+  <input type="hidden" th:field="*{id}"/>
+  <p>
+    Languages:
+    <select th:field="*{language}">
+      <option th:each="lang: ${languages}" th:value="${lang}" th:text="${lang}"></option>
+    </select>
+  </p>
+  <p>
+    Page Size:
+    <select th:field="*{pageSize}">
+      <option th:each="size: ${pageSizes}" th:value="${size}" th:text="${size}"></option>
+    </select>
+  </p>
+  <p>
+    Spams Filter:
+    <input type="checkbox" th:field="*{spamsFilter}"/> Enable spams filter
+  </p>
+  <p>
+    Signature:
+    <textarea th:field="*{signature}" rows="5" cols="30"></textarea>
+  </p>
+
+  <button type="submit">Update</button>
+  <a th:href="@{/exercise_1/settings/list}" class="button">Cancel</a>
+</form>
+</body>
+</html>

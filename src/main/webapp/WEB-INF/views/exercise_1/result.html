@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Settings Detail</h2>
+    <p><strong>ID:</strong> <span th:text="${settings.id}"></span></p>
+    <p><strong>Language:</strong> <span th:text="${settings.language}"></span></p>
+    <p><strong>Page Size:</strong> <span th:text="${settings.pageSize}"></span></p>
+    <p><strong>Spam Filter:</strong> <span th:text="${settings.spamsFilter}"></span></p>
+    <p><strong>Signature:</strong></p>
+    <pre th:text="${settings.signature}"></pre>
+
+    <a th:href="@{/exercise_1/settings/list}" class="button">Back to list</a>
+</body>
+</html>

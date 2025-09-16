@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Email Settings List</h2>
+    <a href="/exercise_1/settings/create">Create New</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Language</th>
+            <th>Page Size</th>
+            <th>Spams Filter</th>
+            <th>Signature</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="item : ${settingsList}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.language}"></td>
+            <td th:text="${item.pageSize}"></td>
+            <td th:text="${item.spamsFilter}"></td>
+            <td th:text="${item.signature}"></td>
+            <td>
+                <a th:href="@{/exercise_1/settings/edit/{id}(id=${item.id})}">Edit</a> |
+                <a th:href="@{/exercise_1/settings/delete/{id}(id=${item.id})}">Delete</a> |
+                <a th:href="@{/exercise_1/settings/view/{id}(id=${item.id})}">View</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
