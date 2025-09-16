@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h3>Upload Song</h3>
+  <p>
+    <a th:href="@{/exercise_2/song}">Back to song list</a>
+  </p>
+  <div id="form">
+    <form th:action="@{/exercise_2/song/save}" th:object="${songForm}"
+          method="post" enctype="multipart/form-data">
+      <input type="hidden" th:field="*{id}">
+      <table>
+        <tr>
+          <td><label for="title">Title</label></td>
+          <td><input type="text" id="title" th:field="*{title}" required/></td>
+        </tr>
+        <tr>
+          <td><label for="artist">Artist</label></td>
+          <td><input type="text" id="artist" th:field="*{artist}" required/></td>
+        </tr>
+        <tr>
+          <td><label for="genre">Genre</label></td>
+          <td>
+            <select id="genre" th:field="*{genre}">
+              <option value="Pop">Pop</option>
+              <option value="Rock">Rock</option>
+              <option value="Jazz">Jazz</option>
+              <option value="EDM">EDM</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="file">File</label></td>
+          <td><input type="file" id="file" th:field="*{file}" required/></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" value="Save"/></td>
+        </tr>
+      </table>
+    </form>
+    <p th:text="${message}"></p>
+  </div>
+</body>
+</html>
