@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <title>Health Declaration Form</title>
+</head>
+<body>
+<h2>Tạo mới khai báo y tế</h2>
+<form th:action="@{/exercise_3/create}" th:object="${declaration}" method="post">
+  Họ tên: <input type="text" th:field="*{fullName}"/><br/>
+  Năm sinh: <input type="number" th:field="*{birthYear}"/><br/>
+  Giới tính:
+  <select th:field="*{gender}">
+    <option value="Nam">Nam</option>
+    <option value="Nữ">Nữ</option>
+  </select><br/>
+  Quốc tịch: <input type="text" th:field="*{nationality}"/><br/>
+  Số CMND/CCCD: <input type="text" th:field="*{identityNumber}"/><br/>
+
+  Phương tiện: <input type="text" th:field="*{vehicleType}"/><br/>
+  Số hiệu: <input type="text" th:field="*{vehicleNumber}"/><br/>
+  Số ghế: <input type="text" th:field="*{seatNumber}"/><br/>
+
+  Địa chỉ: <input type="text" th:field="*{address}"/><br/>
+  Điện thoại: <input type="text" th:field="*{phone}"/><br/>
+  Email: <input type="text" th:field="*{email}"/><br/>
+
+  <h3>Triệu chứng</h3>
+  Sốt: <input type="checkbox" th:field="*{fever}"/><br/>
+  Ho: <input type="checkbox" th:field="*{cough}"/><br/>
+  Khó thở: <input type="checkbox" th:field="*{shortnessOfBreath}"/><br/>
+  Đau họng: <input type="checkbox" th:field="*{soreThroat}"/><br/>
+
+  <button type="submit">GỬI TỜ KHAI</button>
+</form>
+</body>
+</html>

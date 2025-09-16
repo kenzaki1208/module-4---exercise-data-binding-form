@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Sửa khai báo y tế</h2>
+<form th:action="@{/exercise_3/edit}" th:object="${declaration}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  Họ tên: <input type="text" th:field="*{fullName}"/><br>
+  Năm sinh: <input type="number" th:field="*{birthYear}"/><br>
+  Quốc tịch: <input type="text" th:field="*{nationality}"/><br>
+  <button type="submit">Cập nhật</button>
+</form>
+</body>
+</html>

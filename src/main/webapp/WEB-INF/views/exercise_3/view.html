@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết khai báo y tế</title>
+</head>
+<body>
+    <h2>Chi tiết khai báo y tế</h2>
+    <p><strong>Họ tên:</strong> <span th:text="${declaration.fullName}"></span></p>
+    <p><strong>Năm sinh:</strong> <span th:text="${declaration.birthYear}"></span></p>
+    <p><strong>Giới tính:</strong> <span th:text="${declaration.gender}"></span></p>
+    <p><strong>Quốc tịch:</strong> <span th:text="${declaration.nationality}"></span></p>
+    <p><strong>Số CMND/Hộ chiếu:</strong> <span th:text="${declaration.identityNumber}"></span></p>
+    <p><strong>Phương tiện:</strong> <span th:text="${declaration.vehicleType}"></span></p>
+    <p><strong>Số hiệu:</strong> <span th:text="${declaration.vehicleNumber}"></span></p>
+    <p><strong>Số ghế:</strong> <span th:text="${declaration.seatNumber}"></span></p>
+    <p><strong>Địa chỉ:</strong> <span th:text="${declaration.address}"></span></p>
+    <p><strong>Điện thoại:</strong> <span th:text="${declaration.phone}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${declaration.email}"></span></p>
+
+    <h3>Triệu chứng</h3>
+    <ul>
+        <li>Sốt: <span th:text="${declaration.fever} ? 'Có' : 'Không'"></span></li>
+        <li>Ho: <span th:text="${declaration.cough} ? 'Có' : 'Không'"></span></li>
+        <li>Khó thở: <span th:text="${declaration.shortnessOfBreath} ? 'Có' : 'Không'"></span></li>
+        <li>Đau họng: <span th:text="${declaration.soreThroat} ? 'Có' : 'Không'"></span></li>
+    </ul>
+
+    <a th:href="@{/exercise_3/list}">Quay lại danh sách</a>
+</body>
+</html>
