@@ -3,29 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Chi tiết khai báo y tế</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
 </head>
-<body>
-    <h2>Chi tiết khai báo y tế</h2>
-    <p><strong>Họ tên:</strong> <span th:text="${declaration.fullName}"></span></p>
-    <p><strong>Năm sinh:</strong> <span th:text="${declaration.birthYear}"></span></p>
-    <p><strong>Giới tính:</strong> <span th:text="${declaration.gender}"></span></p>
-    <p><strong>Quốc tịch:</strong> <span th:text="${declaration.nationality}"></span></p>
-    <p><strong>Số CMND/Hộ chiếu:</strong> <span th:text="${declaration.identityNumber}"></span></p>
-    <p><strong>Phương tiện:</strong> <span th:text="${declaration.vehicleType}"></span></p>
-    <p><strong>Số hiệu:</strong> <span th:text="${declaration.vehicleNumber}"></span></p>
-    <p><strong>Số ghế:</strong> <span th:text="${declaration.seatNumber}"></span></p>
-    <p><strong>Địa chỉ:</strong> <span th:text="${declaration.address}"></span></p>
-    <p><strong>Điện thoại:</strong> <span th:text="${declaration.phone}"></span></p>
-    <p><strong>Email:</strong> <span th:text="${declaration.email}"></span></p>
+<body class="bg-light">
+<div class="container my-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Chi tiết khai báo y tế</h2>
+        </div>
+        <div class="card-body">
 
-    <h3>Triệu chứng</h3>
-    <ul>
-        <li>Sốt: <span th:text="${declaration.fever} ? 'Có' : 'Không'"></span></li>
-        <li>Ho: <span th:text="${declaration.cough} ? 'Có' : 'Không'"></span></li>
-        <li>Khó thở: <span th:text="${declaration.shortnessOfBreath} ? 'Có' : 'Không'"></span></li>
-        <li>Đau họng: <span th:text="${declaration.soreThroat} ? 'Có' : 'Không'"></span></li>
-    </ul>
+            <!-- Thông tin cá nhân -->
+            <h5 class="mb-3 text-primary">Thông tin cá nhân</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Họ tên:</strong> <span th:text="${declaration.fullName}"></span></li>
+                <li class="list-group-item"><strong>Năm sinh:</strong> <span th:text="${declaration.birthYear}"></span></li>
+                <li class="list-group-item"><strong>Giới tính:</strong> <span th:text="${declaration.gender}"></span></li>
+                <li class="list-group-item"><strong>Quốc tịch:</strong> <span th:text="${declaration.nationality}"></span></li>
+                <li class="list-group-item"><strong>Số CMND/CCCD:</strong> <span th:text="${declaration.identityNumber}"></span></li>
+            </ul>
 
-    <a th:href="@{/exercise_3/list}">Quay lại danh sách</a>
+            <!-- Thông tin di chuyển -->
+            <h5 class="mb-3 text-primary">Thông tin di chuyển</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Phương tiện:</strong> <span th:text="${declaration.vehicleType}"></span></li>
+                <li class="list-group-item"><strong>Số hiệu:</strong> <span th:text="${declaration.vehicleNumber}"></span></li>
+                <li class="list-group-item"><strong>Số ghế:</strong> <span th:text="${declaration.seatNumber}"></span></li>
+                <li class="list-group-item"><strong>Ngày khởi hành:</strong> <span th:text="${declaration.startDate}"></span></li>
+                <li class="list-group-item"><strong>Ngày kết thúc:</strong> <span th:text="${declaration.endDate}"></span></li>
+                <li class="list-group-item"><strong>Trong 14 ngày qua đã đến:</strong> <span th:text="${declaration.travelHistory}"></span></li>
+            </ul>
+
+            <!-- Địa chỉ liên lạc -->
+            <h5 class="mb-3 text-primary">Địa chỉ liên lạc</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Địa chỉ chi tiết:</strong> <span th:text="${declaration.detailedAddress}"></span></li>
+                <li class="list-group-item"><strong>Phường/Xã:</strong> <span th:text="${declaration.ward}"></span></li>
+                <li class="list-group-item"><strong>Quận/Huyện:</strong> <span th:text="${declaration.district}"></span></li>
+                <li class="list-group-item"><strong>Tỉnh/Thành phố:</strong> <span th:text="${declaration.province}"></span></li>
+                <li class="list-group-item"><strong>Điện thoại:</strong> <span th:text="${declaration.phone}"></span></li>
+                <li class="list-group-item"><strong>Email:</strong> <span th:text="${declaration.email}"></span></li>
+            </ul>
+
+            <!-- Triệu chứng -->
+            <h5 class="mb-3 text-primary">Triệu chứng trong 14 ngày qua</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">Sốt: <span th:text="${declaration.fever} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Ho: <span th:text="${declaration.cough} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Khó thở: <span th:text="${declaration.shortnessOfBreath} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Đau họng: <span th:text="${declaration.soreThroat} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Nôn/buồn nôn: <span th:text="${declaration.nausea} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Tiêu chảy: <span th:text="${declaration.diarrhea} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Xuất huyết ngoài da: <span th:text="${declaration.hemorrhage} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Nổi ban ngoài da: <span th:text="${declaration.rash} ? 'Có' : 'Không'"></span></li>
+            </ul>
+
+            <!-- Lịch sử phơi nhiễm -->
+            <h5 class="mb-3 text-primary">Lịch sử phơi nhiễm</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">Tiếp xúc động vật / chợ động vật: <span th:text="${declaration.contactWithAnimal} ? 'Có' : 'Không'"></span></li>
+                <li class="list-group-item">Tiếp xúc gần (&lt;2m) với người nhiễm/nghi nhiễm: <span th:text="${declaration.closeContactWithInfected} ? 'Có' : 'Không'"></span></li>
+            </ul>
+
+            <div class="text-end">
+                <a class="btn btn-secondary" th:href="@{/exercise_3/list}">Quay lại danh sách</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 </html>

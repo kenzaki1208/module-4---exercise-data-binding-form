@@ -2,32 +2,163 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sửa khai báo y tế</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
 </head>
-<body>
-<h2>Sửa khai báo y tế</h2>
-<form th:action="@{/exercise_3/edit}" th:object="${declaration}" method="post">
-    <input type="hidden" th:field="*{id}"/>
-    Họ tên: <input type="text" th:field="*{fullName}"/><br>
-    Năm sinh: <input type="number" th:field="*{birthYear}"/><br>
-    Quốc tịch: <input type="text" th:field="*{nationality}"/><br>
-    Số CMND/CCCD: <input type="text" th:field="*{identityNumber}"/><br/>
+<body class="bg-light">
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Sửa khai báo y tế</h4>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/exercise_3/edit}" th:object="${declaration}" method="post" class="row g-3">
+                <input type="hidden" th:field="*{id}"/>
 
-    Phương tiện: <input type="text" th:field="*{vehicleType}"/><br/>
-    Số hiệu: <input type="text" th:field="*{vehicleNumber}"/><br/>
-    Số ghế: <input type="text" th:field="*{seatNumber}"/><br/>
+                <!-- Thông tin cá nhân -->
+                <h5 class="text-primary mt-3">Thông tin cá nhân</h5>
+                <div class="col-md-6">
+                    <label class="form-label">Họ tên</label>
+                    <input type="text" th:field="*{fullName}" class="form-control"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Năm sinh</label>
+                    <input type="number" th:field="*{birthYear}" class="form-control"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Giới tính</label>
+                    <select th:field="*{gender}" class="form-select">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Quốc tịch</label>
+                    <input type="text" th:field="*{nationality}" class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">CMND/CCCD</label>
+                    <input type="text" th:field="*{identityNumber}" class="form-control"/>
+                </div>
 
-    Địa chỉ: <input type="text" th:field="*{address}"/><br/>
-    Điện thoại: <input type="text" th:field="*{phone}"/><br/>
-    Email: <input type="text" th:field="*{email}"/><br/>
+                <!-- Thông tin di chuyển -->
+                <h5 class="text-primary mt-4">Thông tin di chuyển</h5>
+                <div class="col-md-4">
+                    <label class="form-label">Phương tiện</label>
+                    <input type="text" th:field="*{vehicleType}" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Số hiệu</label>
+                    <input type="text" th:field="*{vehicleNumber}" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Số ghế</label>
+                    <input type="text" th:field="*{seatNumber}" class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Ngày khởi hành</label>
+                    <input type="date" th:field="*{startDate}" class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Ngày kết thúc</label>
+                    <input type="date" th:field="*{endDate}" class="form-control"/>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Trong 14 ngày qua đã đến</label>
+                    <textarea th:field="*{travelHistory}" class="form-control" rows="2"></textarea>
+                </div>
 
-    <h3>Triệu chứng</h3>
-    Sốt: <input type="checkbox" th:field="*{fever}"/><br/>
-    Ho: <input type="checkbox" th:field="*{cough}"/><br/>
-    Khó thở: <input type="checkbox" th:field="*{shortnessOfBreath}"/><br/>
-    Đau họng: <input type="checkbox" th:field="*{soreThroat}"/><br/>
-    <button type="submit">Cập nhật</button>
-</form>
-<a th:href="@{/exercise_3/list}">Quay lại danh sách</a>
+                <!-- Địa chỉ liên lạc -->
+                <h5 class="text-primary mt-4">Địa chỉ liên lạc</h5>
+                <div class="col-md-4">
+                    <label class="form-label">Tỉnh/Thành phố</label>
+                    <input type="text" th:field="*{province}" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Quận/Huyện</label>
+                    <input type="text" th:field="*{district}" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Phường/Xã</label>
+                    <input type="text" th:field="*{ward}" class="form-control"/>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Địa chỉ chi tiết</label>
+                    <input type="text" th:field="*{detailedAddress}" class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Điện thoại</label>
+                    <input type="text" th:field="*{phone}" class="form-control"/>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control"/>
+                </div>
+
+                <!-- Triệu chứng -->
+                <h5 class="text-primary mt-4">Triệu chứng trong 14 ngày qua</h5>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{fever}" class="form-check-input"/>
+                        <label class="form-check-label">Sốt</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{cough}" class="form-check-input"/>
+                        <label class="form-check-label">Ho</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{shortnessOfBreath}" class="form-check-input"/>
+                        <label class="form-check-label">Khó thở</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{soreThroat}" class="form-check-input"/>
+                        <label class="form-check-label">Đau họng</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{nausea}" class="form-check-input"/>
+                        <label class="form-check-label">Nôn/Buồn nôn</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{diarrhea}" class="form-check-input"/>
+                        <label class="form-check-label">Tiêu chảy</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{hemorrhage}" class="form-check-input"/>
+                        <label class="form-check-label">Xuất huyết ngoài da</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{rash}" class="form-check-input"/>
+                        <label class="form-check-label">Nổi ban ngoài da</label>
+                    </div>
+                </div>
+
+                <!-- Lịch sử phơi nhiễm -->
+                <h5 class="text-primary mt-4">Lịch sử phơi nhiễm</h5>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{contactWithAnimal}" class="form-check-input"/>
+                        <label class="form-check-label">Tiếp xúc động vật / chợ buôn bán động vật</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" th:field="*{closeContactWithInfected}" class="form-check-input"/>
+                        <label class="form-check-label">Tiếp xúc gần (&lt;2m) với người nhiễm/nghi nhiễm</label>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-success">Cập nhật</button>
+                    <a th:href="@{/exercise_3/list}" class="btn btn-secondary ms-2">Quay lại danh sách</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 </html>

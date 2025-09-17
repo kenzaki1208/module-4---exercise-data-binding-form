@@ -7,23 +7,51 @@ public class HealthDeclaration {
     private String gender;
     private String nationality;
     private String identityNumber;
+
+    // Phương tiện di chuyển
     private String vehicleType;
     private String vehicleNumber;
     private String seatNumber;
-    private String address;
+    private String startDate;
+    private String endDate;
+
+    // Lịch sử di chuyển
+    private String travelHistory;
+
+    // Địa chỉ liên lạc
+    private String province;
+    private String district;
+    private String ward;
+    private String detailedAddress;
+
     private String phone;
     private String email;
+
+    // Triệu chứng
     private boolean fever;
     private boolean cough;
     private boolean shortnessOfBreath;
     private boolean soreThroat;
+    private boolean nausea;
+    private boolean diarrhea;
+    private boolean hemorrhage;
+    private boolean rash;
+
+    // Lịch sử phơi nhiễm
+    private boolean contactWithAnimal;
+    private boolean closeContactWithInfected;
 
     public HealthDeclaration() {}
 
+    // Constructor đầy đủ
     public HealthDeclaration(int id, String fullName, Integer birthYear, String gender, String nationality,
-        String identityNumber, String vehicleType, String vehicleNumber, String seatNumber, String address,
-        String phone, String email, boolean fever, boolean cough, boolean shortnessOfBreath, boolean soreThroat) {
-
+                             String identityNumber, String vehicleType, String vehicleNumber, String seatNumber,
+                             String startDate, String endDate, String travelHistory,
+                             String province, String district, String ward, String detailedAddress,
+                             String phone, String email,
+                             boolean fever, boolean cough, boolean shortnessOfBreath, boolean soreThroat,
+                             boolean nausea, boolean diarrhea, boolean hemorrhage, boolean rash,
+                             boolean contactWithAnimal, boolean closeContactWithInfected) {
         this.id = id;
         this.fullName = fullName;
         this.birthYear = birthYear;
@@ -33,140 +61,108 @@ public class HealthDeclaration {
         this.vehicleType = vehicleType;
         this.vehicleNumber = vehicleNumber;
         this.seatNumber = seatNumber;
-        this.address = address;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.travelHistory = travelHistory;
+        this.province = province;
+        this.district = district;
+        this.ward = ward;
+        this.detailedAddress = detailedAddress;
         this.phone = phone;
         this.email = email;
         this.fever = fever;
         this.cough = cough;
         this.shortnessOfBreath = shortnessOfBreath;
         this.soreThroat = soreThroat;
+        this.nausea = nausea;
+        this.diarrhea = diarrhea;
+        this.hemorrhage = hemorrhage;
+        this.rash = rash;
+        this.contactWithAnimal = contactWithAnimal;
+        this.closeContactWithInfected = closeContactWithInfected;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
 
-    public String getFullName() {
-        return fullName;
-    }
+    public Integer getBirthYear() { return birthYear; }
+    public void setBirthYear(Integer birthYear) { this.birthYear = birthYear; }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
 
-    public Integer getBirthYear() {
-        return birthYear;
-    }
+    public String getNationality() { return nationality; }
+    public void setNationality(String nationality) { this.nationality = nationality; }
 
-    public void setBirthYear(Integer birthYear) {
-        this.birthYear = birthYear;
-    }
+    public String getIdentityNumber() { return identityNumber; }
+    public void setIdentityNumber(String identityNumber) { this.identityNumber = identityNumber; }
 
-    public String getGender() {
-        return gender;
-    }
+    public String getVehicleType() { return vehicleType; }
+    public void setVehicleType(String vehicleType) { this.vehicleType = vehicleType; }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    public String getVehicleNumber() { return vehicleNumber; }
+    public void setVehicleNumber(String vehicleNumber) { this.vehicleNumber = vehicleNumber; }
 
-    public String getNationality() {
-        return nationality;
-    }
+    public String getSeatNumber() { return seatNumber; }
+    public void setSeatNumber(String seatNumber) { this.seatNumber = seatNumber; }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
+    public String getStartDate() { return startDate; }
+    public void setStartDate(String startDate) { this.startDate = startDate; }
 
-    public String getIdentityNumber() {
-        return identityNumber;
-    }
+    public String getEndDate() { return endDate; }
+    public void setEndDate(String endDate) { this.endDate = endDate; }
 
-    public void setIdentityNumber(String identityNumber) {
-        this.identityNumber = identityNumber;
-    }
+    public String getTravelHistory() { return travelHistory; }
+    public void setTravelHistory(String travelHistory) { this.travelHistory = travelHistory; }
 
-    public String getVehicleType() {
-        return vehicleType;
-    }
+    public String getProvince() { return province; }
+    public void setProvince(String province) { this.province = province; }
 
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
+    public String getDistrict() { return district; }
+    public void setDistrict(String district) { this.district = district; }
 
-    public String getVehicleNumber() {
-        return vehicleNumber;
-    }
+    public String getWard() { return ward; }
+    public void setWard(String ward) { this.ward = ward; }
 
-    public void setVehicleNumber(String vehicleNumber) {
-        this.vehicleNumber = vehicleNumber;
-    }
+    public String getDetailedAddress() { return detailedAddress; }
+    public void setDetailedAddress(String detailedAddress) { this.detailedAddress = detailedAddress; }
 
-    public String getSeatNumber() {
-        return seatNumber;
-    }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 
-    public void setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public String getAddress() {
-        return address;
-    }
+    public boolean isFever() { return fever; }
+    public void setFever(boolean fever) { this.fever = fever; }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public boolean isCough() { return cough; }
+    public void setCough(boolean cough) { this.cough = cough; }
 
-    public String getPhone() {
-        return phone;
-    }
+    public boolean isShortnessOfBreath() { return shortnessOfBreath; }
+    public void setShortnessOfBreath(boolean shortnessOfBreath) { this.shortnessOfBreath = shortnessOfBreath; }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public boolean isSoreThroat() { return soreThroat; }
+    public void setSoreThroat(boolean soreThroat) { this.soreThroat = soreThroat; }
 
-    public String getEmail() {
-        return email;
-    }
+    public boolean isNausea() { return nausea; }
+    public void setNausea(boolean nausea) { this.nausea = nausea; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public boolean isDiarrhea() { return diarrhea; }
+    public void setDiarrhea(boolean diarrhea) { this.diarrhea = diarrhea; }
 
-    public boolean isFever() {
-        return fever;
-    }
+    public boolean isHemorrhage() { return hemorrhage; }
+    public void setHemorrhage(boolean hemorrhage) { this.hemorrhage = hemorrhage; }
 
-    public void setFever(boolean fever) {
-        this.fever = fever;
-    }
+    public boolean isRash() { return rash; }
+    public void setRash(boolean rash) { this.rash = rash; }
 
-    public boolean isCough() {
-        return cough;
-    }
+    public boolean isContactWithAnimal() { return contactWithAnimal; }
+    public void setContactWithAnimal(boolean contactWithAnimal) { this.contactWithAnimal = contactWithAnimal; }
 
-    public void setCough(boolean cough) {
-        this.cough = cough;
-    }
-
-    public boolean isShortnessOfBreath() {
-        return shortnessOfBreath;
-    }
-
-    public void setShortnessOfBreath(boolean shortnessOfBreath) {
-        this.shortnessOfBreath = shortnessOfBreath;
-    }
-
-    public boolean isSoreThroat() {
-        return soreThroat;
-    }
-
-    public void setSoreThroat(boolean soreThroat) {
-        this.soreThroat = soreThroat;
-    }
+    public boolean isCloseContactWithInfected() { return closeContactWithInfected; }
+    public void setCloseContactWithInfected(boolean closeContactWithInfected) { this.closeContactWithInfected = closeContactWithInfected; }
 }
