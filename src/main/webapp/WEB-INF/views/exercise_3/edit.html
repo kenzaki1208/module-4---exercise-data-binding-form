@@ -7,11 +7,26 @@
 <body>
 <h2>Sửa khai báo y tế</h2>
 <form th:action="@{/exercise_3/edit}" th:object="${declaration}" method="post">
-  <input type="hidden" th:field="*{id}"/>
-  Họ tên: <input type="text" th:field="*{fullName}"/><br>
-  Năm sinh: <input type="number" th:field="*{birthYear}"/><br>
-  Quốc tịch: <input type="text" th:field="*{nationality}"/><br>
-  <button type="submit">Cập nhật</button>
+    <input type="hidden" th:field="*{id}"/>
+    Họ tên: <input type="text" th:field="*{fullName}"/><br>
+    Năm sinh: <input type="number" th:field="*{birthYear}"/><br>
+    Quốc tịch: <input type="text" th:field="*{nationality}"/><br>
+    Số CMND/CCCD: <input type="text" th:field="*{identityNumber}"/><br/>
+
+    Phương tiện: <input type="text" th:field="*{vehicleType}"/><br/>
+    Số hiệu: <input type="text" th:field="*{vehicleNumber}"/><br/>
+    Số ghế: <input type="text" th:field="*{seatNumber}"/><br/>
+
+    Địa chỉ: <input type="text" th:field="*{address}"/><br/>
+    Điện thoại: <input type="text" th:field="*{phone}"/><br/>
+    Email: <input type="text" th:field="*{email}"/><br/>
+
+    <h3>Triệu chứng</h3>
+    Sốt: <input type="checkbox" th:field="*{fever}"/><br/>
+    Ho: <input type="checkbox" th:field="*{cough}"/><br/>
+    Khó thở: <input type="checkbox" th:field="*{shortnessOfBreath}"/><br/>
+    Đau họng: <input type="checkbox" th:field="*{soreThroat}"/><br/>
+    <button type="submit">Cập nhật</button>
 </form>
 <a th:href="@{/exercise_3/list}">Quay lại danh sách</a>
 </body>
